@@ -1,0 +1,144 @@
+{
+  "User1": [
+    {
+      "id": "JournalEntries",
+      "title": "My Journal",
+      "url": "journalentries",
+      "items": [
+        {
+          "title": "July 4th Fireworks",
+          "url": "#",
+          "id": "1"
+        },
+        {
+          "title": "Weekend Trip to the Lake",
+          "url": "#",
+          "id": "2"
+        },
+        {
+          "id": "3",
+          "title": "First Day of School",
+          "url": "#"
+        },
+        {
+          "id": "4",
+          "title": "Grandma's Birthday",
+          "url": "#"
+        },
+        {
+          "id": "5",
+          "title": "Learning to Ride a Bike",
+          "url": "#"
+        },
+        {
+          "id": "6",
+          "title": "Family Reunion",
+          "url": "#"
+        },
+        {
+          "id": "7",
+          "title": "New Puppy",
+          "url": "#"
+        },
+        {
+          "id": "8",
+          "title": "Camping Adventure",
+          "url": "#"
+        },
+        {
+          "id": "9",
+          "title": "Dave",
+          "url": "#"
+        },
+        {
+          "id": "10",
+          "title": "Josh",
+          "url": "#"
+        },
+        {
+          "id": "11",
+          "title": "Miguel",
+          "url": "#"
+        },
+        {
+          "id": "12",
+          "title": "Marzia",
+          "url": "#"
+        },
+        {
+          "id": "13",
+          "title": "Onnesha",
+          "url": "#"
+        },
+        {
+          "id": "14",
+          "title": "Fuad",
+          "url": "#"
+        },
+        {
+          "id": "15",
+          "title": "Yousef",
+          "url": "#"
+        },
+        {
+          "id": "16",
+          "title": "Sid",
+          "url": "#"
+        },
+        {
+          "id": "17",
+          "title": "Smaller Screen ",
+          "url": "#"
+        },
+        {
+          "id": "18",
+          "title": "Big Screen with Div",
+          "url": "#"
+        },
+        {
+          "id": "19",
+          "title": "Final Test",
+          "url": "#"
+        },
+        {
+          "id": "20",
+          "title": "Title",
+          "url": "#"
+        },
+        {
+          "id": "21",
+          "title": "Title",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "id": "Reflections",
+      "title": "Reflections",
+      "url": "reflections",
+      "items": [
+        {
+          "title": "One",
+          "url": "#",
+          "isActive": true,
+          "id": "21"
+        },
+        {
+          "title": "Two",
+          "url": "#",
+          "id": "22"
+        },
+        {
+          "title": "Three",
+          "url": "#",
+          "id": "23"
+        },
+        {
+          "title": "Four",
+          "url": "#",
+          "id": "24"
+        }
+      ]
+    }
+  ]
+}
