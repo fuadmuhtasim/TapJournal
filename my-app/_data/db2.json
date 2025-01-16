@@ -6,108 +6,21 @@
       "url": "journalentries",
       "items": [
         {
-          "title": "July 4th Fireworks",
-          "url": "#",
-          "id": "1"
+          "id": "1",
+          "title": "A Day at the Beach",
+          "description": "The sun beat down on my face as I lay on the warm sand, the sound of waves crashing against the shore a constant, rhythmic lullaby. I felt the stress of the week melt away, replaced by a sense of peace and tranquility. I spent the afternoon building a sandcastle with my children, their laughter echoing through the air. We collected seashells, marveling at their intricate patterns and vibrant colors. As the sun began to set, painting the sky in hues of orange and purple, we walked along the water's edge, hand in hand, feeling grateful for these precious moments together.",
+          "url": "#"
         },
         {
-          "title": "Weekend Trip to the Lake",
-          "url": "#",
-          "id": "2"
-        },
-        {
-          "id": "3",
-          "title": "First Day of School",
+          "id": "2",
+          "title": "Hiking Adventure",
+          "description": "The trail wound its way through a lush green forest, sunlight filtering through the leaves. I breathed deeply, the crisp mountain air filling my lungs. With each step, I felt a sense of exhilaration, a connection to nature that I rarely experience in the city. The sounds of birdsong and the rustling of leaves created a symphony of nature. I reached the summit, rewarded with breathtaking panoramic views of the valley below. I sat on a rock, enjoying the solitude and the beauty of the natural world.",
           "url": "#"
         },
         {
           "id": "4",
-          "title": "Grandma's Birthday",
-          "url": "#"
-        },
-        {
-          "id": "5",
-          "title": "Learning to Ride a Bike",
-          "url": "#"
-        },
-        {
-          "id": "6",
-          "title": "Family Reunion",
-          "url": "#"
-        },
-        {
-          "id": "7",
-          "title": "New Puppy",
-          "url": "#"
-        },
-        {
-          "id": "8",
-          "title": "Camping Adventure",
-          "url": "#"
-        },
-        {
-          "id": "9",
-          "title": "Dave",
-          "url": "#"
-        },
-        {
-          "id": "10",
-          "title": "Josh",
-          "url": "#"
-        },
-        {
-          "id": "11",
-          "title": "Miguel",
-          "url": "#"
-        },
-        {
-          "id": "12",
-          "title": "Marzia",
-          "url": "#"
-        },
-        {
-          "id": "13",
-          "title": "Onnesha",
-          "url": "#"
-        },
-        {
-          "id": "14",
-          "title": "Fuad",
-          "url": "#"
-        },
-        {
-          "id": "15",
-          "title": "Yousef",
-          "url": "#"
-        },
-        {
-          "id": "16",
-          "title": "Sid",
-          "url": "#"
-        },
-        {
-          "id": "17",
-          "title": "Smaller Screen ",
-          "url": "#"
-        },
-        {
-          "id": "18",
-          "title": "Big Screen with Div",
-          "url": "#"
-        },
-        {
-          "id": "19",
-          "title": "Final Test",
-          "url": "#"
-        },
-        {
-          "id": "20",
-          "title": "Title",
-          "url": "#"
-        },
-        {
-          "id": "21",
-          "title": "Title",
+          "title": "Learning to Play Guitar",
+          "description": "I've always wanted to learn to play guitar, and finally, I decided to take the plunge. It's been a challenging but rewarding experience. My fingers fumble on the fretboard, and the chords sound a bit off-key at first. But with each practice session, I feel myself improving. I'm starting to see the progress I'm making, and it's incredibly motivating. I'm learning to be patient with myself, to enjoy the process of learning, and to appreciate the beauty of music.",
           "url": "#"
         }
       ]

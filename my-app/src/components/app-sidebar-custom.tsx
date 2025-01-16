@@ -1,6 +1,5 @@
 import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
-// import {getUser} from "./testdb";
 import { useState, useEffect } from 'react';
 
 import {
@@ -18,60 +17,19 @@ import {
 } from "@/components/ui/sidebar"
 import { boolean } from "zod";
 
-// This is sample data.
-//This is the type of JSON data we will need to grab from a Database
-const data = {
-  User1: [
-    {
-      title: "Journal Entries",
-      url: "journalentries",
-      items: [
-        {
-          title: "One",
-          url: "#",
-        },
-        {
-          title: "Two",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Reflections",
-      url: "reflections",
-      items: [
-        {
-          title: "One",
-          url: "#",
-          isActive: true,
-        },
-        {
-          title: "Two",
-          url: "#",
-        },
-        {
-          title: "Three",
-          url: "#",
-        },
-        {
-          title: "Four",
-          url: "#",
-        },
-      ],
-    }
-  ],
-}
 //Interfaces
 interface ButtonPanelProps {
   setActiveComponent: React.Dispatch<React.SetStateAction<null | string>>;
   setIsTransitioning: React.Dispatch<React.SetStateAction<boolean>>;
   trigger: boolean;
+  setDetailsforJournal: React.Dispatch<React.SetStateAction<Details | null>>
 }
 interface Items {
   id: string;
   title: string;
   url: string;
   isActive?: boolean;
+  description: string
 }
 interface UserDetails {
   id: string;
@@ -79,8 +37,13 @@ interface UserDetails {
   url: string;
   items: Items [];
 }
-//I am getting an array of UserDetails from here. Not UserDetails itself.
-const getUser = async() : Promise<UserDetails[]> =>{
+interface Details {
+  id: string,
+  title: string;
+  description: string;
+}
+//Gets an array of UserDetails from database
+const getUserDetails = async() : Promise<UserDetails[]> =>{
   try{
       const response = await fetch("http://localhost:4000/User1");
       if (!response.ok) { 
@@ -95,17 +58,16 @@ const getUser = async() : Promise<UserDetails[]> =>{
   }
 }
 
-export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger}: ButtonPanelProps) {
+export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, setDetailsforJournal}: ButtonPanelProps) {
 
-  const [data2, setData2] = useState<UserDetails[]>([]);
+  const [userdata, setuserData] = useState<UserDetails[]>([]);
   const [loading, setloading] = useState(true);
 
   useEffect (() => {
     const fetchData = async () => {
         try {
-            const fetchedData = await getUser();
-            console.log(fetchedData);
-            setData2(fetchedData);
+            const fetchedData = await getUserDetails();
+            setuserData(fetchedData);
             setloading(false);
         } catch (error) {
             console.error('Error fetching data:', error);
@@ -117,9 +79,19 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger}: B
   const handleClick = (componentName: string) => {
     setIsTransitioning(true); // Triggers the transition
     setTimeout(() => {
-      setActiveComponent(componentName); // Sets the active component after transition
+       // Sets the active component after transition
       setIsTransitioning(false);
-    }, 180); // Match with animation duration
+      setActiveComponent(componentName);
+    }, 280); // Match with animation duration
+  };
+  const handleClick2 = (buttondetails: Details) => {
+    setIsTransitioning(true); // Triggers the transition
+    setTimeout(() => {
+       // Sets the active component after transition
+      setIsTransitioning(false);
+      setDetailsforJournal(buttondetails);
+      setActiveComponent('JournalCard');
+    }, 280); // Match with animation duration
   };
   
   return (
@@ -145,10 +117,10 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger}: B
         <SidebarGroup>
           <SidebarMenu>
 
-
+        <div className={`transition: opacity duration-300 ease-in-out ${loading ? 'opacity-0' : 'opacity-100'}`} >
           {!loading && (
             <>
-            {data2.map((item) => (
+            {userdata.map((item) => (
               <SidebarMenuItem key={item.id}>
                 {/* Here for some reason, the Sidebar Menu button: Journal Entries is given in the form of a button with a href to a url */}
                 <SidebarMenuButton asChild>
@@ -160,7 +132,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger}: B
                   <SidebarMenuSub>
                     {item.items.map((item) => (
                       <SidebarMenuSubItem key={item.id}>
-                        <SidebarMenuSubButton asChild isActive={item.isActive} >
+                        <SidebarMenuSubButton asChild isActive={item.isActive} onClick = {() => handleClick2({title: item.title, description: item.description, id: item.id})} >
                           <a href={item.url}>{item.title}</a>
                         </SidebarMenuSubButton>
                       </SidebarMenuSubItem>
@@ -171,7 +143,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger}: B
             ))} 
           </>
           )}
-
+        </div>
 
             <SidebarMenuItem>
               <SidebarMenuButton asChild>

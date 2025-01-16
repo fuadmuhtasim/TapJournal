@@ -46,6 +46,7 @@ interface Items {
   title: string,
   url: string,
   isActive?: boolean
+  description: string
 }
 interface UserDetails {
   id: string,
@@ -103,6 +104,7 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
       const newItem: Items = {
         id: "100",
         title: data.title,
+        description: data.entry,
         url: "#",
       };
       try {
@@ -117,10 +119,8 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
         title: "Your journal entry has been added ✅",
         description: (<pre>
           Title: {JSON.stringify(data.title, null, 2)}
-          .  📜   Check the sidebar! 
         </pre>),
       })
-      //Toaster
     }
     const handleClick = () => {
       setIsTransitioning(true); // Triggers the transition

@@ -28,6 +28,7 @@ import {
   } from "@/components/ui/card"
 
   interface Details {
+    id: string,
     title: string;
     description: string;
   }
@@ -43,6 +44,7 @@ import {
     title: string,
     url: string,
     isActive?: boolean
+    description: string
   }
   interface UserDetails {
     id: string,
@@ -51,7 +53,7 @@ import {
     items: Items []
   }
   //AsyncFunction: 
-  const addItemToJournalEntries = async (newItem: Items): Promise<void> => {
+  const modifyJournalEntry = async (data: z.infer<typeof FormSchema>, id: string): Promise<void> => {
     try {
         // Step 1: Fetch the current data
         const response = await fetch("http://localhost:4000/User1");
@@ -59,34 +61,45 @@ import {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const userDetails: UserDetails[] = await response.json();
+
         // Step 2: Find the JournalEntries object
         const journalEntries = userDetails.find(user => user.id === "JournalEntries");
         if (!journalEntries) {
             throw new Error("JournalEntries not found in the database.");
         }
-        // Step 3: Add the new item to the items array
-        const lastItemId = journalEntries.items[journalEntries.items.length - 1].id;
-        const newItemId = (parseInt(lastItemId) + 1).toString();
-        newItem.id = newItemId;
-        journalEntries.items.push(newItem);
-        // Step 4: Send a PUT request to update the entire JournalEntries object
-        const putResponse = await fetch(`http://localhost:4000/User1/${journalEntries.id}`, {
+        // Step 3: Find the item by ID and modify its description and title
+        const updatedItems = journalEntries.items.map(item =>
+            item.id === id
+                ? {
+                    ...item,
+                    description: data.entry,
+                    title: data.title
+                }
+                : item
+        );
+
+        // Step 4: Update the journalEntries object
+        const updatedJournalEntries = { ...journalEntries, items: updatedItems };
+
+        console.log(updatedJournalEntries);
+
+        // Step 5: Send the updated data back to the server using the correct PUT URL
+        const updateResponse = await fetch(`http://localhost:4000/User1/JournalEntries`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(journalEntries),
+            body: JSON.stringify(updatedJournalEntries),
         });
-        // Failed to update data from database
-        if (!putResponse.ok) {
-            throw new Error(`Failed to update database. HTTP error: ${putResponse.status}`);
+
+        if (!updateResponse.ok) {
+            throw new Error(`Failed to update data! status: ${updateResponse.status}`);
         }
-        console.log("Item successfully added to JournalEntries.");
+        console.log(`Item with ID ${id} updated successfully.`);
     } catch (error) {
-        console.error("Error adding item to JournalEntries:", error);
-        throw error;
+        console.error("Error updating item:", error);
     }
-  };
+};
 
 const FormSchema = z.object({
   entry: z
@@ -124,29 +137,22 @@ export function TextareaFormFilled( {details, setActiveComponent, setIsTransitio
     };
 
     async function onSubmit(data: z.infer<typeof FormSchema>) {
-      const newItem: Items = {
-        id: "100",
-        title: data.title,
-        url: "#",
-      };
-      try {
-        await addItemToJournalEntries(newItem);
+      if (details !== null) {
+        try {
+          await modifyJournalEntry(data, details.id);
+        }
+        catch(error) {
+          console.log (error);
+        }
       }
-      catch (error){
-        console.error('Error submitting item: ', error);
-        toast({
-          variant: "destructive",
-          title: "Oops something went wrong entry!",
-          description: "There was a problem with your request."
-      })}
-      handleClick();
+      else {
+        console.error("details.id is null, cannot modify journal entry");
+      }
       refreshComponent();
+      handleClick();
       toast({
-        title: "Your journal entry has been added ✅",
-        description: (<pre>
-          Title: {JSON.stringify(data.title, null, 2)}
-          .  📜   Check the sidebar! 
-        </pre>),
+        title: "Editing Successful ✅",
+        description: "Your journal has been edited"
       })
     }
 
