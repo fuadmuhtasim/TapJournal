@@ -138,53 +138,53 @@ interface UserDetails {
 
 
 
-const modifyJournalEntry = async (id: string): Promise<void> => {
-    try {
-        // Step 1: Fetch the current data
-        const response = await fetch("http://localhost:4000/User1");
-        if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const userDetails: UserDetails[] = await response.json();
+// const modifyJournalEntry = async (id: string): Promise<void> => {
+//     try {
+//         // Step 1: Fetch the current data
+//         const response = await fetch("http://localhost:4000/User1");
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! status: ${response.status}`);
+//         }
+//         const userDetails: UserDetails[] = await response.json();
 
-        // Step 2: Find the JournalEntries object
-        const journalEntries = userDetails.find(user => user.id === "JournalEntries");
-        if (!journalEntries) {
-            throw new Error("JournalEntries not found in the database.");
-        }
-        // Step 3: Find the item by ID and modify its description and title
-        const updatedItems = journalEntries.items.map(item =>
-            item.id === id
-                ? {
-                    ...item,
-                    description: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-                    title: "XXXXXXXXX"
-                }
-                : item
-        );
+//         // Step 2: Find the JournalEntries object
+//         const journalEntries = userDetails.find(user => user.id === "JournalEntries");
+//         if (!journalEntries) {
+//             throw new Error("JournalEntries not found in the database.");
+//         }
+//         // Step 3: Find the item by ID and modify its description and title
+//         const updatedItems = journalEntries.items.map(item =>
+//             item.id === id
+//                 ? {
+//                     ...item,
+//                     description: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+//                     title: "XXXXXXXXX"
+//                 }
+//                 : item
+//         );
 
-        // Step 4: Update the journalEntries object
-        const updatedJournalEntries = { ...journalEntries, items: updatedItems };
+//         // Step 4: Update the journalEntries object
+//         const updatedJournalEntries = { ...journalEntries, items: updatedItems };
 
-        console.log(updatedJournalEntries);
+//         console.log(updatedJournalEntries);
 
-        // Step 5: Send the updated data back to the server using the correct PUT URL
-        const updateResponse = await fetch(`http://localhost:4000/User1/JournalEntries`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(updatedJournalEntries),
-        });
+//         // Step 5: Send the updated data back to the server using the correct PUT URL
+//         const updateResponse = await fetch(`http://localhost:4000/User1/JournalEntries`, {
+//             method: "PUT",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//             body: JSON.stringify(updatedJournalEntries),
+//         });
 
-        if (!updateResponse.ok) {
-            throw new Error(`Failed to update data! status: ${updateResponse.status}`);
-        }
-        console.log(`Item with ID ${id} updated successfully.`);
-    } catch (error) {
-        console.error("Error updating item:", error);
-    }
-};
+//         if (!updateResponse.ok) {
+//             throw new Error(`Failed to update data! status: ${updateResponse.status}`);
+//         }
+//         console.log(`Item with ID ${id} updated successfully.`);
+//     } catch (error) {
+//         console.error("Error updating item:", error);
+//     }
+// };
 
-modifyJournalEntry("6");
+// modifyJournalEntry("6");
 

@@ -1,6 +1,8 @@
 import * as React from "react"
 import { GalleryVerticalEnd } from "lucide-react"
 import { useState, useEffect } from 'react';
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
 
 import {
   Sidebar,
@@ -99,10 +101,14 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton size="lg" asChild>
+            <SidebarMenuButton size="lg" asChild onClick={() => handleClick('WelcomeCard')}>
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <GalleryVerticalEnd className="size-4" />
+                  <Avatar>
+                    <AvatarImage src= "https://static.vecteezy.com/system/resources/previews/000/437/751/non_2x/sun-smiling-vector-icon.jpg"/>
+                    <AvatarFallback>CN</AvatarFallback>
+                  </Avatar>
+
                 </div>
                 <div className="flex flex-col gap-0.5 leading-none">
                   <span className="font-semibold">Tap Journal</span>
@@ -113,6 +119,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
         <SidebarGroup>
           <SidebarMenu>
