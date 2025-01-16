@@ -1,17 +1,17 @@
 //This is a test file to work with the database
-interface Items {
-    id: string,
-    title: string,
-    url: string,
-    isActive?: boolean
-    description: string
-}
-interface UserDetails {
-    id: string,
-    title: string,
-    url: string,
-    items: Items []
-}
+// interface Items {
+//     id: string,
+//     title: string,
+//     url: string,
+//     isActive?: boolean
+//     description: string
+// }
+// interface UserDetails {
+//     id: string,
+//     title: string,
+//     url: string,
+//     items: Items []
+// }
 //I am getting an array of UserDetails from here. Not UserDetails itself.
 // const getUser = async() : Promise<UserDetails[]> =>{
 //     try{
