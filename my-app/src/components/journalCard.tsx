@@ -38,7 +38,7 @@ interface JournalCardProps {
 const deleteItemJournalEntries = async (id: string): Promise<void> => {
     try {
         // Step 1: Fetch the current data
-        const response = await fetch("http://localhost:4000/User1");
+        const response = await fetch("https://tapdatabase.onrender.com/User1");
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -58,7 +58,7 @@ const deleteItemJournalEntries = async (id: string): Promise<void> => {
         console.log(updatedJournalEntries);
 
         // Step 5: Send the updated data back to the server using the correct PUT URL
-        const updateResponse = await fetch(`http://localhost:4000/User1/JournalEntries`, {
+        const updateResponse = await fetch(`https://tapdatabase.onrender.com/User1/JournalEntries`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

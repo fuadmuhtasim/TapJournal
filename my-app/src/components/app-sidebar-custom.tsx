@@ -46,7 +46,7 @@ interface Details {
 //Gets an array of UserDetails from database
 const getUserDetails = async() : Promise<UserDetails[]> =>{
   try{
-      const response = await fetch("http://localhost:4000/User1");
+      const response = await fetch("https://tapdatabase.onrender.com/User1");
       if (!response.ok) { 
           throw new Error(`HTTP error! status: ${response.status}`); 
       }

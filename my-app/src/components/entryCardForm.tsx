@@ -58,7 +58,7 @@ interface UserDetails {
 const addItemToJournalEntries = async (newItem: Items): Promise<void> => {
   try {
       // Step 1: Fetch the current data
-      const response = await fetch("http://localhost:4000/User1");
+      const response = await fetch("https://tapdatabase.onrender.com/User1");
       if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -74,7 +74,7 @@ const addItemToJournalEntries = async (newItem: Items): Promise<void> => {
       newItem.id = newItemId;
       journalEntries.items.push(newItem);
       // Step 4: Send a PUT request to update the entire JournalEntries object
-      const putResponse = await fetch(`http://localhost:4000/User1/${journalEntries.id}`, {
+      const putResponse = await fetch(`https://tapdatabase.onrender.com/User1/${journalEntries.id}`, {
           method: "PUT",
           headers: {
               "Content-Type": "application/json",
