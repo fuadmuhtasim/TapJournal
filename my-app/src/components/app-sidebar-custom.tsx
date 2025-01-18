@@ -75,7 +75,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
         }
     };
     fetchData();
-}, [trigger]);
+  }, [trigger]);
 
   const handleClick = (componentName: string) => {
     setIsTransitioning(true); // Triggers the transition
@@ -96,8 +96,8 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
   };
   
   return (
-    <Sidebar>
-      <SidebarHeader>
+    <Sidebar >
+      <SidebarHeader className = "border-none">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild onClick={() => handleClick('WelcomeCard')}>
@@ -119,7 +119,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent>
+      <SidebarContent className = "shadow-lg">
         <SidebarGroup>
           <SidebarMenu>
 

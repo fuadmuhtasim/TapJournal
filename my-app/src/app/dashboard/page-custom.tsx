@@ -42,14 +42,13 @@ export default function Page() {
     <SidebarProvider>
       {/* App Sidebar sets activeComponent for page and sets the Transitioning property too */}
       <AppSidebar setActiveComponent={setActiveComponent} setIsTransitioning = {setIsTransitioning} trigger = {trigger} setDetailsforJournal = {setDetailsforJournal}/>
-      <SidebarInset>
-        <header className="flex h-16 shrink-0 items-center gap-2 border-b">
+      <SidebarInset className ="bg-gradient-to-t from-stone-100 to-stone-0 border-none">
+        <header className="border-none bg-[hsl(204,16%,94%)] flex h-16 shrink-0 items-center gap-2 border-b">
           <div className="flex items-center gap-2 px-3">
-            <SidebarTrigger />
+            <SidebarTrigger/>
             <Separator orientation="vertical" className="mr-2 h-4" />
-            
-            <Breadcrumb>
-              <BreadcrumbList>
+            <Breadcrumb >
+              <BreadcrumbList >
                 <BreadcrumbItem className="hidden md:block">
                     Open / Collapse Sidebar
                 </BreadcrumbItem>

@@ -131,23 +131,23 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
     };
 
   return (
-    <Card className="flex flex-col justify-between p-4">
+    <Card className="border-8 border-[hsl(197,13%,57%)] shadow-lg flex flex-col justify-between p-4">
       <div className = "pt-2 pl-5 pb-8">
         <div className = "pb-3" >
-          <h1 className ="text-2xl font-semibold leading-none tracking-tight"> create new entry ✍🏼</h1>
+          <h1 className ="pl-5 pb-3 pt-6 text-2xl font-semibold leading-none tracking-tight"> create new entry ✍🏼</h1>
         </div>
-      <Form {...form}>
+      <Form {...form} >
         <form onSubmit={form.handleSubmit(onSubmit)} className="w-2/3 space-y-6">
-          <FormField
+          <FormField 
             control={form.control}
             name="title"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Title 📓</FormLabel>
-                <FormControl>
+              <FormItem className="pl-2">
+                <FormLabel className="pl-4" >Title</FormLabel>
+                <FormControl className="pb-0">
                   <Textarea
-                    placeholder="Type the title of your entry here!"
-                    className="resize-none min-h-[40px]"
+                    placeholder="Type in your title here"
+                    className=" border-[hsl(353,96%,96%)] resize-none min-h-[40px]"
                     {...field}
                   />
                 </FormControl>
@@ -159,11 +159,11 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
             control={form.control}
             name="entry"
             render={({ field }) => (
-              <FormItem>
-                <FormLabel>Description 🌳</FormLabel>
+              <FormItem className="pl-2">
+                <FormLabel className="pl-4" >Description</FormLabel>
                 <FormControl>
                   <Textarea
-                    placeholder="Type the description of your entry here."
+                    placeholder="Type in your description here"
                     className="resize-none"
                     {...field}
                   />
@@ -172,7 +172,7 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
               </FormItem>
             )}
           />
-          <div  className = "grid grid-cols-2 gap-4"> 
+          <div  className = "pl-2 pt-3 pb-4 grid grid-cols-2 gap-4"> 
             <Button variant="outline" type="submit">Submit</Button>
             <Button variant="outline_negative" type = "button" onClick ={handleClick}> Cancel </Button>
           </div>

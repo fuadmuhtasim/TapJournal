@@ -1,4 +1,6 @@
 import { useToast } from "@/hooks/use-toast"
+import { Button } from "@/components/ui/button"
+
 import {
     Card,
     CardContent,
@@ -116,22 +118,22 @@ export default function JournalCard({setActiveComponent, setDetailsforForm, setI
         })
     };
 
-    return (
-                    <Card className="flex flex-col justify-between">
+    return (     
+                    <Card className="border-0 rounded-lg p-4 shadow-lg flex flex-col justify-between">
                         <CardHeader className="flex-row gap-4 items-center">
                             <div>
-                                <CardTitle>🌤️ {detailsforJournal?.title}</CardTitle>
-                                <CardDescription className="mt-3"><p>❄️ Created on:    01/16/2025</p></CardDescription>
-                                <CardDescription><p>🍎 Last Modified:    01/16/2025</p></CardDescription>
+                                <CardTitle className = "ml-2 rounded-xl p-3 mb-4 bg-[hsl(195,13,88)] ">{detailsforJournal?.title}</CardTitle>
+                                <CardDescription className="pl-3 mt-6"><p><b>Created on:</b>    01/16/2025</p></CardDescription>
+                                <CardDescription className="pl-3 mt-1 "><p><b>Last Modified:</b>    01/16/2025</p></CardDescription>
                             </div>
                         </CardHeader>
                         <CardContent>
-                           <p> {detailsforJournal?.description} </p>
+                           <p className="pl-3 pr-4 pb-5"> {detailsforJournal?.description} </p>
                         </CardContent>
                         <CardFooter className="flex justify-between">
-                            <button onClick={() => detailsforJournal ? handleEdit2(detailsforJournal) : handleClick()} > ♻️ Edit Entry </button>
-                            <button onClick={() => detailsforJournal ? handleDelete(detailsforJournal) : handleClick()}> 🗑️ Delete Entry </button>
+                            <Button variant = "ghost" className = "hover:bg-[hsl(36,86%,91%)] hover:text-stone-900" onClick={() => detailsforJournal ? handleEdit2(detailsforJournal) : handleClick()} > Edit Entry</Button>
+                            <Button variant = "ghost" className = "hover:bg-[hsl(335,100%,96%)] hover:text-stone-900" onClick={() => detailsforJournal ? handleDelete(detailsforJournal) : handleClick()}> Delete Entry </Button>
                         </CardFooter>
-                    </Card>
+                </Card>
     )
 }
