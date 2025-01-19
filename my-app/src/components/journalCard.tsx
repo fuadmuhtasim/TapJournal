@@ -122,7 +122,7 @@ export default function JournalCard({setActiveComponent, setDetailsforForm, setI
                     <Card className="motion-preset-slide-right-sm border-none border-0 rounded-lg p-4 shadow-lg flex flex-col justify-between">
                         <CardHeader className="flex-row gap-4 items-center">
                             <div>
-                                <CardTitle className = "ml-2 rounded-xl p-3 mb-4 bg-[hsl(195,13,88)] ">{detailsforJournal?.title}</CardTitle>
+                                <CardTitle className = "ml-2 rounded-xl p-3 mb-4 bg-[hsl(195,13%,88%)] ">{detailsforJournal?.title}</CardTitle>
                                 <CardDescription className="pl-3 mt-6"><p><b>Created on:</b>    01/16/2025</p></CardDescription>
                                 <CardDescription className="pl-3 mt-1 "><p><b>Last Modified:</b>    01/16/2025</p></CardDescription>
                             </div>
