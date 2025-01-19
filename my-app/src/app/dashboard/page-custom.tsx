@@ -40,11 +40,11 @@ export default function Page() {
         <header className="border-none bg-[hsl(26,41,97)] flex h-16 shrink-0 items-center gap-2 border-b">
           
           <div className="pt-3 flex items-center gap-2 px-3 w-full">
-          <div className="flex-1">
+          <div className=" flex-1 pr-0">
             <SidebarTrigger className="border-4"> Button </SidebarTrigger>
           </div>
-          <div className="flex-1 flex justify-center">
-            <h1 className="text-xl font-[montserrat] font-bold">Tap Journal</h1>
+          <div className="p-3 flex-2 flex justify-center">
+            <h1 className=" text-xl font-[montserrat] font-bold">Tap Journal</h1>
           </div>
             <div className="flex-1"></div>
           </div>

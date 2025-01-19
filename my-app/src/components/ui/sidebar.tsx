@@ -262,6 +262,7 @@ const SidebarTrigger = React.forwardRef<
   React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
   const { toggleSidebar } = useSidebar()
+  const isMobile = window.innerWidth <= 768;
 
   return (
     <Button
@@ -275,7 +276,7 @@ const SidebarTrigger = React.forwardRef<
       {...props}
     >
       <PanelLeft />
-      Toggle Menu
+        {isMobile ? "Menu" : 'Toggle Menu'} 
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )
