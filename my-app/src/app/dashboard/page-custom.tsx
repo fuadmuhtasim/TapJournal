@@ -1,12 +1,6 @@
 import { AppSidebar } from "@/components/app-sidebar-custom";
 import { useState } from 'react';
 import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbList
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
-import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
