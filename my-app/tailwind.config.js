@@ -19,8 +19,6 @@ export default {
         	opensans: ['Open Sans', 'sans-serif'],
 		  },
   		colors: {
-			'stone-100': 'hsl(60, 10%, 96%)',
-			'stone-0': 'hsl(0, 0%, 100%)',
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
   			ring: 'hsl(var(--ring))',
