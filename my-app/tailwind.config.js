@@ -7,6 +7,17 @@ export default {
   ],
   theme: {
   	extend: {
+		cursor: {
+			pointer: 'url(/public/cursors/icons8-dot-24.png), pointer',
+		},
+		fontFamily: {
+			montserrat: ['Montserrat', 'sans-serif'],
+			roboto: ['Roboto', 'sans-serif'],
+			inter: ['Inter', 'sans-serif'],
+			lora: ['Lora', 'serif'],
+			sans: ['Open Sans', 'sans-serif'], // Overrides the default sans-serif
+        	opensans: ['Open Sans', 'sans-serif'],
+		  },
   		colors: {
   			border: 'hsl(var(--border))',
   			input: 'hsl(var(--input))',
@@ -81,6 +92,6 @@ export default {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [require("tailwindcss-animate"),require('tailwindcss-motion')]
 }
 

@@ -2,6 +2,7 @@ import * as React from "react"
 import { useState, useEffect } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
+import { useSidebar } from "@/components/ui/sidebar";
 
 import {
   Sidebar,
@@ -60,7 +61,7 @@ const getUserDetails = async() : Promise<UserDetails[]> =>{
 }
 
 export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, setDetailsforJournal}: ButtonPanelProps) {
-
+  const { toggleSidebar } = useSidebar();
   const [userdata, setuserData] = useState<UserDetails[]>([]);
   const [loading, setloading] = useState(true);
 
@@ -78,6 +79,9 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
   }, [trigger]);
 
   const handleClick = (componentName: string) => {
+    if (window.innerWidth <= 768) { // Check if the screen size is mobile
+      toggleSidebar();  // Collapse the sidebar on mobile view
+    }
     setIsTransitioning(true); // Triggers the transition
     setTimeout(() => {
        // Sets the active component after transition
@@ -86,6 +90,9 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
     }, 280); // Match with animation duration
   };
   const handleClick2 = (buttondetails: Details) => {
+    if (window.innerWidth <= 768) { // Check if the screen size is mobile
+      toggleSidebar();  // Collapse the sidebar on mobile view
+    }
     setIsTransitioning(true); // Triggers the transition
     setTimeout(() => {
        // Sets the active component after transition
@@ -96,13 +103,13 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
   };
   
   return (
-    <Sidebar >
-      <SidebarHeader className = "border-none">
+    <Sidebar>
+      <SidebarHeader className = " border-none">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild onClick={() => handleClick('WelcomeCard')}>
               <a href="#">
-                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                <div className=" flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <Avatar>
                     <AvatarImage src= "https://static.vecteezy.com/system/resources/previews/000/437/751/non_2x/sun-smiling-vector-icon.jpg"/>
                     <AvatarFallback>CN</AvatarFallback>
@@ -130,7 +137,7 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
               <SidebarMenuItem key={item.id}>
                 {/* Here for some reason, the Sidebar Menu button: Journal Entries is given in the form of a button with a href to a url */}
                 <SidebarMenuButton asChild>
-                  <a href={item.url} className="font-medium">
+                  <a href={item.url} className="font-opensans font-bold">
                     {item.title}
                   </a>
                 </SidebarMenuButton>
@@ -153,17 +160,17 @@ export function AppSidebar({ setActiveComponent, setIsTransitioning, trigger, se
 
             <SidebarMenuItem>
               <SidebarMenuButton asChild>
-                  <button className="font-medium" onClick={() => handleClick('EntryCard')}>
+                  <button className="font-bold" onClick={() => handleClick('EntryCard')}>
                   +📜 Add Journal Entry 
                   </button>
               </SidebarMenuButton>
               <SidebarMenuButton asChild>
-                  <button className="font-medium" onClick={() => handleClick('JournalCard')}>
-                  +🙋‍♀️ Generate Therapy Questions 
+                  <button className="font-bold" onClick={() => handleClick('JournalCard')}>
+                  +🙋‍♀️ Ask Therapy Questions 
                   </button>
               </SidebarMenuButton>
               <SidebarMenuButton asChild>
-                  <button className="font-medium" onClick={() => handleClick('WelcomeCard')}>
+                  <button className="font-bold" onClick={() => handleClick('WelcomeCard')}>
                   +🙂 Weekly Mood Analysis
                   </button>
               </SidebarMenuButton>

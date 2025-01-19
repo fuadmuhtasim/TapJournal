@@ -9,15 +9,15 @@ import {
 
 export default function WelcomeCard(){
     return (    
-                        <Card className= " animate-fade-in rounded-3xl shadow-lg border-0 flex flex-col justify-between">
+                        <Card className= "cursor-custom motion-preset-slide-up motion-duration-1000 rounded-3xl shadow-lg border-0 flex flex-col justify-between">
                             <CardHeader className="flex-row gap-4 items-center">
                                 <div>
-                                    <Card className = "rounded-full bg-[hsl(353,96%,96%)] border-0 p-5 animate-fade-in"><CardTitle className="text-2xl text-[hsl(165.7,91.3%,9%)]"> Good Afternoon User! ☀️☁️ </CardTitle></Card>
+                                    <Card className = " text-base motion-preset-slide-up motion-duration-2000 rounded-full bg-[hsl(353,96%,96%)] border-0 p-5 font-opensans "><CardTitle className="text-2xl text-[hsl(165.7,91.3%,9%)]"> Good Afternoon User! ☀️☁️ </CardTitle></Card>
                                 </div> 
                                 </CardHeader>
-                                <div><CardDescription className = "pl-10  text-[hsl(226,38%,15%)]" ><p>Welcome to   <b className="text-xl">Tap Journal</b> </p></CardDescription>
+                                <div><CardDescription className = "font-montserrat  motion-preset-slide-up motion-duration-4000 pl-10  text-[hsl(226,38%,15%)] " ><p>Welcome to   <b className="text-lg">Tap Journal</b> </p></CardDescription>
                                 </div>
-                        <div className = "mt-4 pl-4 pb-5">
+                        <div className = "font-sans motion-preset-slide-up motion-duration-4000 mt-4 pl-4 pb-5">
                         <CardContent>
                             <p>Use Tap Journal as a <u>freewriting space</u> for your: </p>
                                 <ol>

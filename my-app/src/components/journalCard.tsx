@@ -119,7 +119,7 @@ export default function JournalCard({setActiveComponent, setDetailsforForm, setI
     };
 
     return (     
-                    <Card className="border-0 rounded-lg p-4 shadow-lg flex flex-col justify-between">
+                    <Card className="motion-preset-slide-right-sm border-none border-0 rounded-lg p-4 shadow-lg flex flex-col justify-between">
                         <CardHeader className="flex-row gap-4 items-center">
                             <div>
                                 <CardTitle className = "ml-2 rounded-xl p-3 mb-4 bg-[hsl(195,13,88)] ">{detailsforJournal?.title}</CardTitle>
@@ -128,7 +128,7 @@ export default function JournalCard({setActiveComponent, setDetailsforForm, setI
                             </div>
                         </CardHeader>
                         <CardContent>
-                           <p className="pl-3 pr-4 pb-5"> {detailsforJournal?.description} </p>
+                           <p className="border-none border border-[hsl(353,96%,96%)] bg-amber-50 rounded-md pt-3 pl-5 pr-4 pb-5"> {detailsforJournal?.description} </p>
                         </CardContent>
                         <CardFooter className="flex justify-between">
                             <Button variant = "ghost" className = "hover:bg-[hsl(36,86%,91%)] hover:text-stone-900" onClick={() => detailsforJournal ? handleEdit2(detailsforJournal) : handleClick()} > Edit Entry</Button>

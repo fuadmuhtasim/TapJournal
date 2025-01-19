@@ -131,8 +131,8 @@ export function TextareaForm({setActiveComponent, setIsTransitioning, refreshCom
     };
 
   return (
-    <Card className="border-8 border-[hsl(197,13%,57%)] shadow-lg flex flex-col justify-between p-4">
-      <div className = "pt-2 pl-5 pb-8">
+    <Card className="motion-preset-slide-down border-8 border-[hsl(197,13%,57%)] shadow-lg flex flex-col justify-between p-4">
+      <div className = "motion-preset-slide-up  pt-2 pl-5 pb-8">
         <div className = "pb-3" >
           <h1 className ="pl-5 pb-3 pt-6 text-2xl font-semibold leading-none tracking-tight"> create new entry ✍🏼</h1>
         </div>
